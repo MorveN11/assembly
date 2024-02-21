@@ -1,4 +1,4 @@
-# System programming
+# System programming - Team Cafesito?
 
 ## Members
 
@@ -7,4 +7,3 @@
 - Santiago Quiroga Salazar
 - Andre Perez Duran
 - Rodrigo Esprella Valdez
-

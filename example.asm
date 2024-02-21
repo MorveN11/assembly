@@ -1,6 +1,6 @@
 ; asciiz  db  '12345', 0
-; temp    db  '123'
-; fija    db  5, '12345'
+; temp    db  3, '123'
+; fija    db  '12345'
 ; estruc  db  4, 3, '123'
 
 .model small
