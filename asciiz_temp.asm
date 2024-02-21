@@ -11,5 +11,5 @@ ciclo:
 	inc di
 	jmp ciclo
 
-cadASCIIZ db “123”, 0
-cadTemp db 100 dup(‘?’)
+cadASCIIZ db ï¿½123ï¿½, 0
+cadTemp db 100 dup(ï¿½?ï¿½)
