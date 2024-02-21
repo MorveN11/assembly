@@ -1,11 +1,10 @@
 Lea si, cadEstr
 inc si
-
-inc si
 mov cl, [si]
+inc si
 
 Lea bx, cadFij
-  ciclo:
+ciclo:
   mov al, [si]
   mov [bx], al
   inc si
