@@ -1,14 +1,14 @@
 Lea si, cadEstr
 inc si
 mov cl, [si]
-
+inc cl
 Lea bx, cadTemp
-  ciclo:
-  mov al, [si]
-  mov [bx], al
-  inc si
-  inc bx
-  Loop ciclo
+ciclo:
+mov al, [si]
+mov [bx], al
+inc si
+inc bx
+Loop ciclo
 
 ret
 
