@@ -1,0 +1,56 @@
+{
+  "assembly main exe": {
+    "prefix": "exe",
+    "body": [
+      ".model small",
+      "",
+      ".stack 100h",
+      "",
+      ".data",
+      "$2",
+      "",
+      ".code",
+      "         org 100h",
+      "",
+      "    main:",
+      "         mov ax, @data",
+      "         mov ds, ax",
+      "",
+      "         ",
+      "",
+      "         jmp done",
+      "",
+      "    done: ",
+      "         mov ah, 4ch",
+      "         int 21h",
+      "",
+      "  end main",
+      ""
+    ],
+    "description": "Main exe file for assembly"
+  },
+  "assembly main com": {
+    "prefix": "com",
+    "body": [
+      ".model tiny",
+      "",
+      ".code",
+      "         org 100h",
+      "",
+      "    main:",
+      "",
+      "",
+      "         jmp done",
+      "",
+      "    done: ",
+      "         mov ah, 4ch",
+      "         int 21h",
+      "",
+      "    $2",
+      "",
+      "  end main",
+      ""
+    ],
+    "description": "Main com file for assembly"
+  }
+}
