@@ -2,30 +2,22 @@
 ; temp    db  3, '123'
 ; fija    db  '12345'
 ; estruc  db  4, 3, '123'
+.model small                      ; use small memory model
+.stack 100h                       ; reserve 100h bytes for stack
 
-.model small
-.stack
-.data
-  cad1 db '100'
-  cad2 db 100 dup('?')
+.data         ; declare variables in data segment
 
-.code
-  start:
-        lea si, cad1
-        lea bx, cad2
-        inc bx
-        mov cl, 3
-        xor dx, dx
-  ciclo:
-        mov al,[si]
-        mov [bx],al
-        inc si
-        inc bx
-        inc dx
-        dec cl
-        jnz ciclo
+.code                      ; start of code segment
+    start:                 ; tell linker where code starts
+          mov ax, @data    ; set up addressability to data segment
+          mov ds, ax       ; by initializing DS register
 
-        lea bx, cad2
-        mov [bx], dl
-  end start
 
+
+          jmp done
+
+    done:                  ; finish execution
+          mov ax, 4c00h    ; terminate program
+          int 21h          ; call DOS
+
+  end start                        ; tell linker that 'start' is the starting point
