@@ -1,4 +1,4 @@
-.model small
+TAS.model small
 .code
         public showStr
         public readStr
