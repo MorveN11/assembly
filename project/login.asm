@@ -141,7 +141,7 @@
     user             db   20 dup("$")
     pass             db   20 dup("$")
     validUser        db   "admin", 0
-    validPass        db   "1234", 0
+    validPass        db   "1234abcdef1234", 0
     invalidUser      db   "Invalid User!", 10, 13
                      db   "$"
     invalidPass      db   "Incorrect Password!", 10, 13
