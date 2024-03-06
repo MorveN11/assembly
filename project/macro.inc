@@ -19,11 +19,14 @@ read macro buffer
        call readStr
 endm
 
-verify macro buffer,validBuffer
+verify macro buffer,validBuffer,exit
          mov  ax, 0
          lea  bx, buffer
          lea  si, validBuffer
          call validString
+         cmp  ax, 1
+         je   exit
+         ret
 endm
 
 exitInvCrd macro buffer
@@ -37,6 +40,20 @@ menuOption macro buffer
              call  exit
              call  cleanTerminal
              jmp   displayMenu
+endm
+
+menuActionOption macro func
+                   call cleanTerminal
+                   call func
+                   call exit
+                   call cleanTerminal
+                   jmp  displayMenu
+endm
+
+addeol macro register
+         mov byte ptr [register + 1], 10
+         mov byte ptr [register + 2], 13
+         mov byte ptr [register + 3], "$"
 endm
 
 copyFijDi macro buffer,len

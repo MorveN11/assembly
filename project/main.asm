@@ -31,25 +31,15 @@ include macro.inc
                     call        displayMenu
                     ExitProcess 0
 
-exitInvalidUser proc
+    exitInvalidUser:
                     exitInvCrd  invalidUser
-exitInvalidUser endp
 
-verifyUser proc
-                    verify      user,validUser
-                    cmp         ax, 1
-                    je          exitInvalidUser
-                    ret
-verifyUser endp
+    verifyUser:     
+                    verify      user,validUser,exitInvalidUser
 
-exitInvalidPass proc
+    exitInvalidPass:
                     exitInvCrd  invalidPass
-exitInvalidPass endp
 
-verifyPass proc
-                    verify      pass,validPass
-                    cmp         ax, 1
-                    je          exitInvalidPass
-                    ret
-verifyPass endp
+    verifyPass:     
+                    verify      pass,validPass,exitInvalidPass
   end main

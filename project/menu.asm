@@ -3,6 +3,7 @@ include macro.inc
     extrn showStr:near
     extrn readStr:near
     extrn cleanTerminal:near
+    extrn sumDigits:near
 .data
     mainMenu         db "---- Welcome to the Menu! ----", 10, 13
                      db "[1] Digits Sum", 10, 13
@@ -36,7 +37,7 @@ include macro.inc
         exit endp
 
         option1 proc
-            menuOption strOption1
+            menuActionOption sumDigits
         option1 endp
 
         option2 proc
