@@ -4,6 +4,7 @@ include macro.inc
     extrn readStr:near
     extrn cleanTerminal:near
     extrn sumDigits:near
+    extrn displayConcatenateMenu:near
 .data
     mainMenu         db "---- Welcome to the Menu! ----", 10, 13
                      db "[1] Digits Sum", 10, 13
@@ -49,13 +50,12 @@ include macro.inc
         option3 endp
 
         option4 proc
-            menuOption strOption4
+            xor             cx, cx
+            menuActionOption  displayConcatenateMenu
         option4 endp
 
         invalidOption proc
-            call cleanTerminal
-            print strInvalidOption
-            jmp displayMenu
+            printInvalidOption strInvalidOption,displayMenu
         invalidOption endp
 
         displayMenu proc

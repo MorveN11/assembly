@@ -61,3 +61,41 @@ copyFijDi macro buffer,len
             mov  cx, len
             call copyFij
 endm
+
+addPrefix macro bufferQuest,buffer,len
+            print bufferQuest
+            lea   bx, buffer
+            add   bx, len
+            call  readStr
+endm
+
+LOCALS @@
+readConcatenate macro firstBuffer,secondBuffer,len
+                  cmp       cx, 0
+                  je        @@firstBufferSelected
+                  jmp       @@secondBufferSelected
+                  jmp       @@endOfSelection
+
+@@firstBufferSelected:
+                  addPrefix firstStringQuest,firstBuffer,len
+                  jmp       @@endOfSelection
+
+@@secondBufferSelected:
+                  addPrefix secondStringQuest,secondBuffer,len
+
+@@endOfSelection:
+                  inc       cx
+                  call      cleanTerminal
+                  call      displayConcatenateMenu
+endm
+
+printInvalidOption macro buffer,menu
+                     call  cleanTerminal
+                     print buffer
+                     jmp   menu
+endm
+
+printTitle macro buffer,menu
+             print buffer
+             jmp   menu
+endm

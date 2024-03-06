@@ -38,6 +38,7 @@ include macro.inc
 
         cleanTerminal proc
             print strCleanTerminal
+            ret
         cleanTerminal endp
 
         invalid proc
