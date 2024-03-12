@@ -1,6 +1,7 @@
 include macro.inc
 .model small
      extrn show_str:near
+.stack 100h
 .data
     str_hangman db 9, 9, "----- Hagnman -----", 10, 13
                 db "$"
