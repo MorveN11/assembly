@@ -1,0 +1,48 @@
+state change: failed -> disconnected (reason 'none', sys-iface-state: 'managed')
+Activation: starting connection 'Hotspot' (00c5f573-f1b4-483b-b1bf-c14f741b3b77)
+state change: disconnected -> prepare (reason 'none', sys-iface-state: 'managed')
+set-hw-addr: reset MAC address to 80:32:53:F3:E1:A7 (preserve)
+state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Activation: (wifi) access point 'Hotspot' has security, but secrets are required.
+state change: config -> need-auth (reason 'none', sys-iface-state: 'managed')
+state change: need-auth -> prepare (reason 'none', sys-iface-state: 'managed')
+state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Activation: (wifi) connection 'Hotspot' has security, and secrets exist.  No new secrets needed.
+supplicant interface state: disconnected -> scanning
+Activation: (wifi) association took too long, failing activation
+state change: config -> failed (reason 'ssid-not-found', sys-iface-state: 'managed')
+set-hw-addr: set MAC address to 46:F6:A0:77:57:B6 (scanning)
+Activation: failed for connection 'Hotspot'
+supplicant interface state: scanning -> disconnected
+state change: failed -> disconnected (reason 'none', sys-iface-state: 'managed')
+I get this logs:
+Mar 11 10:10:38 morven-lap systemd[1]: Starting hostapd.service - Hostapd IEEE 802.11 AP, IEEE 802.1X/WPA/WPA2/EAP/RADIUS Authenticator...
+░░ Subject: A start job for unit hostapd.service has begun execution
+░░ Defined-By: systemd
+░░ Support: https://lists.freedesktop.org/mailman/listinfo/systemd-devel
+░░
+░░ A start job for unit hostapd.service has begun execution.
+░░
+░░ The job identifier is 5627.
+Mar 11 10:10:38 morven-lap systemd[1]: hostapd.service: Control process exited, code=killed, status=9/KILL
+░░ Subject: Unit process exited
+░░ Defined-By: systemd
+░░ Support: https://lists.freedesktop.org/mailman/listinfo/systemd-devel
+░░
+░░ An ExecStart= process belonging to unit hostapd.service has exited.
+░░
+░░ The process' exit code is 'killed' and its exit status is 9.
+Mar 11 10:10:38 morven-lap systemd[1]: hostapd.service: Failed with result 'signal'.
+░░ Subject: Unit failed
+░░ Defined-By: systemd
+░░ Support: https://lists.freedesktop.org/mailman/listinfo/systemd-devel
+░░
+░░ The unit hostapd.service has entered the 'failed' state with result 'signal'.
+Mar 11 10:10:38 morven-lap systemd[1]: Failed to start hostapd.service - Hostapd IEEE 802.11 AP, IEEE 802.1X/WPA/WPA2/EAP/RADIUS Authenticator.
+░░ Subject: A start job for unit hostapd.service has failed
+░░ Defined-By: systemd
+░░ Support: https://lists.freedesktop.org/mailman/listinfo/systemd-devel
+░░
+░░ A start job for unit hostapd.service has finished with a failure.
+░░
+░░ The job identifier is 5627 and the job result is failed.

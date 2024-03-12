@@ -19,14 +19,6 @@ include macro.inc
     secondStringQuest       db "Enter the Second String: $"
     strInvalidOption        db 9, "Previous One was an Invalid Option!", 10, 10, 13
                             db "$"
-    firstAsciizString       db 100 dup("$"), 0
-    secondAsciizString      db 100 dup("$"), 0
-    fristFixedLengthString  db 100 dup("$")
-    secondFixedLengthString db 100 dup("$")
-    firstStructureString    db 100, 50, 50 dup("$")
-    secondStructureString   db 100, 50, 50 dup("$")
-    firstTemporaryString    db 100, 100 dup("$")
-    secondTemporaryString   db 100, 100 dup("$")
     resultString            db 200 dup("?")
 .code
         public          displayConcatenateMenu
