@@ -67,6 +67,7 @@ read_num PROC
                    jmp    loopRead
 
     exitRead:      
+                   mov    byte ptr [si], "$"
                    ret
 read_num ENDP
 
