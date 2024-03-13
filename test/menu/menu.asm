@@ -7,12 +7,14 @@ include macro.inc
     extrn number:near
     extrn hangman:near
     extrn about:near
+    extrn sum:near
 .stack 100h
 .data
     str_menu    db 9, "----- Welcome to the Menu -----", 10, 13
                 db 9, "[1] Game Guess my Number", 10, 13
                 db 9, "[2] Game Hangman", 10, 13
                 db 9, "[3] About Programmers", 10, 13
+                db 9, "[4] Sum 2 digits", 10, 13
                 db 9, "[0] Exit", 10, 13
                 db 9, "Choose an option: $"
     str_invalid db 9, "Invalid option, Try again!", 10, 13
@@ -32,7 +34,7 @@ menu PROC
             read          option
             cmp           byte ptr [bx], 48
             jl            invalid
-            cmp           byte ptr [bx], 51
+            cmp           byte ptr [bx], 52
             jg            invalid
             cmp           byte ptr [bx], 48
             je            done
@@ -42,11 +44,22 @@ menu PROC
             je            option2
             cmp           byte ptr [bx], 51
             je            option3
+            cmp           byte ptr [bx], 52
+            je            option4
+
+    done:   
+            check_invalid
+            clean
+            print         str_bye
+            exit_process  0
 
     invalid:
             clean
             print         str_invalid
             jmp           menu
+
+    option4:
+            menu_option   sum
 
     option1:
             menu_option   number
@@ -57,10 +70,5 @@ menu PROC
     option3:
             menu_option   about
 
-    done:   
-            check_invalid
-            clean
-            print         str_bye
-            exit_process  0
 menu ENDP
   end main
