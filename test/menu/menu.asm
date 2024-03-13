@@ -17,7 +17,7 @@ include macro.inc
                 db 9, "Choose an option: $"
     str_invalid db 9, "Invalid option, Try again!", 10, 13
                 db "$"
-    str_bye     db 9, "----- Thanks :D - Comeback Soon! -----", 10, 13
+    str_bye     db 10, 13, 9, "----- Thanks :D - Comeback Soon! -----", 10, 13, 10, 13
                 db "$"
     str_exit    db 9, "Press any key to exit...$"
     option      db 200 dup ("$")
